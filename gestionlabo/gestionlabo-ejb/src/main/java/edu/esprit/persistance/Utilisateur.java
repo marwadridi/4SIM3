@@ -7,26 +7,46 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="t_user")
-public class Utilisateur implements Serializable{
+@Table(name = "t_user")
+// @DiscriminatorColumn(name = "type")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Utilisateur implements Serializable {
 
 	/**
 	 * 
 	 */
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	
-	@Column(name="c_nom")
+
+	@Column(name = "c_nom")
 	private String nom;
 	private String login;
 	private String password;
+	
+	// one to one bi directionnel
+	@OneToOne(mappedBy="utilisateur")
+	private  Contact contact;
+	
+	@ManyToOne
+	private Laboratoire laboratoire;
 
 	
+	// uni directionnel
+//	@OneToOne
+//	private Contact contact;
+//
+//	@ManyToOne
+//	private Laboratoire laboratoire;
+
 	public int getId() {
 		return id;
 	}
@@ -58,5 +78,22 @@ public class Utilisateur implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public Laboratoire getLaboratoire() {
+		return laboratoire;
+	}
+
+	public void setLaboratoire(Laboratoire laboratoire) {
+		this.laboratoire = laboratoire;
+	}
+
 
 }
