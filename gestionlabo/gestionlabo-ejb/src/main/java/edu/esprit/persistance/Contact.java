@@ -14,6 +14,7 @@ public class Contact implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue
 	private int id;
 	private String adresse;
 	private String email;

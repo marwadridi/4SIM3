@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_user")
 // @DiscriminatorColumn(name = "type")
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
 
 	/**
