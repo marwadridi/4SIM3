@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
@@ -16,6 +17,7 @@ import javax.persistence.ManyToMany;
 public class Competence implements Serializable {
 
 	@Id
+	@GeneratedValue
 	private int id;
 	private String nom;
 	private static final long serialVersionUID = 1L;

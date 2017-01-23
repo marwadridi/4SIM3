@@ -21,7 +21,7 @@ public class Technicien extends Utilisateur implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	private List<Competence> competences;
 	
 	// many to many uni directionnel

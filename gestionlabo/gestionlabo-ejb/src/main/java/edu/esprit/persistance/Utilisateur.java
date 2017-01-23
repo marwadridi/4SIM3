@@ -2,6 +2,7 @@ package edu.esprit.persistance;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,8 @@ public class Utilisateur implements Serializable {
 	private String password;
 	
 	// one to one bi directionnel
-	@OneToOne(mappedBy="utilisateur")
+	@OneToOne(mappedBy="utilisateur",cascade={CascadeType.PERSIST
+		,CascadeType.MERGE})
 	private  Contact contact;
 	
 	@ManyToOne
