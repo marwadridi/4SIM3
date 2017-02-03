@@ -3,13 +3,14 @@ package edu.esprit.mb;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import edu.esprit.persistance.Chercheur;
 import edu.esprit.persistance.Technicien;
 import edu.esprit.persistance.Utilisateur;
 import edu.esprit.services.UtilisateurService;
 
-@ManagedBean  //(name="lbean")
+@ManagedBean // (name="lbean")
 @SessionScoped
 public class LoginBean {
 
@@ -36,6 +37,13 @@ public class LoginBean {
 			navigateTo = "erreur";
 
 		return navigateTo;
+	}
+
+	public String doLogout() {
+
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+
+		return "/login?faces-redirect=true";
 	}
 
 	public String getLogin() {
