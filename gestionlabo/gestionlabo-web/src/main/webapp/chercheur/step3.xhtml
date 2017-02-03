@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+
+	<h:form id="form">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="nom" />
+			<h:outputLabel value="#{sbean.chercheur.nom}" />
+
+			<h:outputLabel value="login" />
+			<h:outputLabel value="#{sbean.chercheur.login}" />
+
+			<h:outputLabel value="password" />
+			<h:outputText  value="#{sbean.chercheur.password}" />
+
+			<h:outputLabel value="adresse" />
+			<h:outputLabel value="#{sbean.contact.adresse}" />
+
+			<h:outputLabel value="email" />
+			<h:outputLabel value="#{sbean.contact.email}" />
+			
+			<h:commandButton id="btn" actionListener="#{sbean.doAdd()}" value="add" />
+			<h:commandButton action="#{sbean.doCancel()}" value="cancel" />
+			
+			<h:message for="btn" />
+
+
+		</h:panelGrid>
+	</h:form>
+
+</body>
+</html>
